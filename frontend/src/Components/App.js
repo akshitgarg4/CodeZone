@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Page404 from "./Page404";
 import CodeEditor from "./CodeEditor";
+import DiffCodeEditor from "./DiffCodeEditor";
 import Nav from "./Nav";
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -35,6 +36,7 @@ class App extends React.Component {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/codeEditor" component={CodeEditor} />
+          <Route path="/diffCodeEditor" component={DiffCodeEditor} />
           <Route component={Page404} />
         </Switch>
       </Router>
