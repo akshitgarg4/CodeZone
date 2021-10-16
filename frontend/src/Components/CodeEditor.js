@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
+import { useState } from "react";
 import Editor from "@monaco-editor/react";
 
 function CodeEditor() {
     const editorRef = useRef(null);
+    const [editorLanguage, setEditorLanguage] = useState("javascript")
+
 
     function handleEditorChange(value, event) {
         // Onchange Prop
@@ -20,20 +23,37 @@ function CodeEditor() {
         console.log(editorRef.current.getValue());
     }
 
+    function onChangeHandler (event) {
+        setEditorLanguage(event.target.value);
+    };
+
     return (
     <>
-        <button onClick={showValue}>Submit Code</button>
+        <h3>Editor Settings</h3>
+        <label>Editor Language </label>
+        <input
+            type="text"
+            name="name"
+            onChange={onChangeHandler}
+            value={editorLanguage}
+        />
+        <hr></hr>
         <Editor
-            height="100vh"
-            defaultLanguage="javascript"
-            defaultValue="// Default Content Start Typing"
+            height="30vh"
+            defaultLanguage= {editorLanguage}
+            defaultValue="
+            // Default Content
+            "
             onMount={handleEditorDidMount}
             onChange={handleEditorChange}
         />
+        <button onClick={showValue}>Submit Code</button>
+
     </>
     );
 }
 
 export default CodeEditor;
+
 
 
