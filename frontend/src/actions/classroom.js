@@ -104,14 +104,15 @@ export function createNewCodeEditor(userId, labId){
 }
 
 //fetching classroom details posts/announcementd/studentlist etc
-function classroomDetails(details){
+function classroomDetails(details,classroom_id){
   return {
       type : FECTH_CURRENT_CLASSROOM_DETAILS,
       students: details.students,
       teachers: details.teachers,
       announcements: details.announcements,
       posts: details.posts,
-      ClassMeetLink : details.ClassMeetLink
+      ClassMeetLink : details.ClassMeetLink,
+      classroomId: classroom_id
   }
 }
 export function fetchClassroomDetails(classroom_id){
@@ -125,7 +126,7 @@ export function fetchClassroomDetails(classroom_id){
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            dispatch(classroomDetails(data.data));
+            dispatch(classroomDetails(data.data,classroom_id));
             return;
           }
         });

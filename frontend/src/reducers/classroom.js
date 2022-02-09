@@ -24,6 +24,7 @@ const initialClassroomState = {
   ClassMeetLink: '',
   messageArray: [],
   unreadMessageCount:[],
+  ID:"",
 };
 export default function auth(state = initialClassroomState, action) {
   switch (action.type) {
@@ -46,7 +47,8 @@ export default function auth(state = initialClassroomState, action) {
         teachers: action.teachers,
         announcements: action.announcements,
         posts: action.posts,
-        ClassMeetLink: action.ClassMeetLink
+        ClassMeetLink: action.ClassMeetLink,
+        ID:action.classroomId,
       };
     case ADD_POST:
     case ADD_COMMENT:

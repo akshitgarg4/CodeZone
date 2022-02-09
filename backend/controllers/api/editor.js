@@ -229,7 +229,6 @@ module.exports.downloadReport = async function (req, res) {
           input: customInput,
           lab: row.id,
         });
-
         if (newCompileRequest) {
           newCompileRequest = await newCompileRequest.save();
           await request(
@@ -255,6 +254,7 @@ module.exports.downloadReport = async function (req, res) {
                 row.marks = 0;
                 finalAnswer = [...finalAnswer, row];
               }
+
             }
           );
         }

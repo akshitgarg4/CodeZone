@@ -228,7 +228,9 @@ class LabDashboard extends Component {
         }      
     };
     render() {
-      let { students } = this.props.classroom;
+        const {classroomId} = this.props.match.params;
+        // console.log(classroomId,"Teacher");
+      let { students,teachers } = this.props.classroom;
       const { user } = this.props.auth;
       const { labId } = this.props.match.params;
       const { editorLabDetails } = this.props.labDetails;
@@ -311,7 +313,9 @@ class LabDashboard extends Component {
                   <Fab variant="extended" m={4}>
                     <CodeEditorSideBar
                       students={students}
+                      teachers={teachers}
                       user={user}
+                      classroomId={classroomId}
                       labId={labId}
                       editorLabDetails={editorLabDetails}
                       dispatch={this.props.dispatch}

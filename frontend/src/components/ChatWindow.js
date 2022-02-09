@@ -31,7 +31,7 @@ export default function DraggableDialog(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const {self,other,classroomId,messageArray} = props;
+  const {self,other,classroomId,messageArray,avatar} = props;
 
   let disable;
   if(self && other){
@@ -79,6 +79,7 @@ export default function DraggableDialog(props) {
             self_details={self}
             other_details={other}
             messageArray={messageArray}
+            avatar = {avatar}
           />
         </DialogContent>
         <DialogActions>

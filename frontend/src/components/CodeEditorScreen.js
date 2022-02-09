@@ -117,13 +117,17 @@ class CodeEditorScreen extends React.Component {
     );
   };
   render() {
-
-    let {students} = this.props.classroom;
+  
+    // console.log(this.props,this.state,"YYYYY");
+    let {students,teachers} = this.props.classroom;
+    const classroomId = this.props.classroom.ID;
     const {user} = this.props.auth;
     const {executionStarted,customOutput,memory,cpuTime} = this.props.execute;
-    const { userId,labId } = this.props.match.params;
+    const { userId,labId} = this.props.match.params;
     const {editorLabDetails} = this.props.labDetails;
     const {finalSubmit, evaluateLab} = this.props.labDetails.codeEditorDetails;
+    // console.log(students,teachers,classroomId,"CES");
+  
     // console.log("this.state.finalSubmit",this.state.showFinalSubmit,"finalSubmit",finalSubmit);
     return (
       <div>
@@ -178,6 +182,8 @@ class CodeEditorScreen extends React.Component {
               <Fab variant="extended">
                 <CodeEditorSideBar
                   students={students}
+                  teachers={teachers}
+                  classroomId={classroomId}
                   user={user}
                   labId={labId}
                   editorLabDetails={editorLabDetails}
