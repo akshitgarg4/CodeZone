@@ -26,7 +26,7 @@ class TeacherDashboard extends Component {
             justifyContent="space-evenly"
             alignItems="center"
           >
-            <Typography variant="h4">CLASSES</Typography>
+            <Typography variant="h4" id="class-list">CLASSES</Typography>
           </Grid>
           <Grid
             item

@@ -74,14 +74,14 @@ class CreateClassPopUp extends Component {
 
     return (
         <div>
-        <Button variant="contained" onClick={this.dialogOpen}>
+        <Button variant="contained" onClick={this.dialogOpen}  id="create-class">
             Create
         </Button>
         <Dialog open={this.state.open} onClose={this.dialogClose}>
         <DialogTitle>
-            {error && <div className="alert error-dailog">{error}</div>}
+            {error && <div className="alert error-dailog" id="message">{error}</div>}
             {code && (
-              <div className="alert success-dailog">
+              <div className="alert success-dailog" id="message">
                 <p>Classroom created successfully!!</p>
                 <p> Share this code with students &nbsp;</p>
                 <b>{code}</b>
@@ -103,6 +103,7 @@ class CreateClassPopUp extends Component {
                 onChange={this.handleSubject}
                 fullWidth
                 variant="standard"
+                id="subject"
             />
             <TextField
                 autoFocus
@@ -113,6 +114,7 @@ class CreateClassPopUp extends Component {
                 onChange={this.handleBatch}
                 fullWidth
                 variant="standard"
+                id="batch"
             />
             <TextField
                 autoFocus
@@ -122,8 +124,9 @@ class CreateClassPopUp extends Component {
                 onChange={this.handleDescription}
                 fullWidth
                 variant="standard"
+                id="description"
             />
-            <Button onClick={this.handleSubmitForm} disabled={inProgress}>
+            <Button onClick={this.handleSubmitForm} disabled={inProgress} id="create-classroom">
             Create
             </Button>
         </DialogActions>

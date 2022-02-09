@@ -57,7 +57,7 @@ class JoinClassPopUp extends Component {
     const { code } = this.props.createClassroom;
     return (
     <div>
-    <Button variant="contained" onClick={this.dialogOpen}>
+    <Button variant="contained" onClick={this.dialogOpen} id="join-class">
         Join
     </Button>
       <Dialog open={this.state.open} onClose={this.dialogClose}>
@@ -85,7 +85,7 @@ class JoinClassPopUp extends Component {
                 fullWidth
                 variant="standard"
             />
-            <Button onClick={this.handleSubmitForm} disabled={inProgress}>
+            <Button onClick={this.handleSubmitForm} disabled={inProgress} >
                 Join Classroom
             </Button>
         </DialogActions>

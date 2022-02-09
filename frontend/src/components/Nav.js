@@ -92,7 +92,7 @@ class Nav extends React.Component {
                     alignItems="center"
                   >
                     <Grid item m={0.25}>
-                      <Link to="/settings">
+                      <Link to="/settings" id="profile-settings">
                         <Avatar src={auth?.user?.avatar} sx={{ width: 35, height: 35 }}>
                     </Avatar>
                       </Link>
@@ -103,14 +103,14 @@ class Nav extends React.Component {
               )}
               {!auth.isLoggedIn && (
                 <Button>
-                  <Link to="/login">
+                  <Link to="/login" id="login-button">
                     <Typography color="common.white">Login</Typography>
                   </Link>
                 </Button>
               )}
               {auth.isLoggedIn && (
                 <Button onClick={this.logout}>
-                  <Link to="/">
+                  <Link to="/" id="logout-button">
                     <Typography color="common.white">Logout</Typography>
                   </Link>
                 </Button>
