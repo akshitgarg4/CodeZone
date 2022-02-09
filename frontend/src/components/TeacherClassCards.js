@@ -64,7 +64,7 @@ const CustomCard = ({
   classroomCode,
 }) => (
   <CardActionAreaActionArea>
-    <Link to={link} id="class-card">
+    <Link to={link}>
       <StyledCard color={color}>
         <CardContentContent color={color}>
           <TypographyTitle variant={"h2"}>{title}</TypographyTitle>
