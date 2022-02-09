@@ -10,7 +10,6 @@ import StudentDashboard from "./StudentDashboard";
 import Classroom from "./Classroom";
 import LabDashboard from "./LabDashboard";
 import Settings from "./Settings";
-import QuizStudent from "./QuizStudent";
 
 import { Paper} from '@mui/material';
 import { createTheme } from '@mui/material/styles';
@@ -99,7 +98,7 @@ class App extends React.Component {
         <CssBaseline />
         <Paper>
           <Router>
-            <Nav />
+            <Nav/>
             <Switch>
               {auth.isLoggedIn && auth.user.role === "Student" && (
                 <Route exact path="/" component={StudentDashboard} />
@@ -108,36 +107,22 @@ class App extends React.Component {
                 <Route exact path="/" component={TeacherDashboard} />
               )}
               {auth.isLoggedIn && (
-                <Route path="/classroom/:classroomID" component={Classroom} />
+                <Route path="/classroom/:classroomID" component={Classroom}/>
               )}
               {auth.isLoggedIn && (
-                <Route
-                  path="/code-editor/:userId/:labId"
-                  component={CodeEditorScreen}
-                />
+                <Route path="/code-editor/:userId/:labId" component={CodeEditorScreen}/>
               )}
               {auth.isLoggedIn && auth.user.role === "Teacher" && (
-                <Route
-                  path="/labDetails/:classroomId/:userId/:labId"
-                  component={LabDashboard}
-                />
+                <Route path="/labDetails/:classroomId/:userId/:labId" component={LabDashboard} />
               )}
               {auth.isLoggedIn && (
-                <Route path="/settings" component={Settings} />
-              )}
-              {auth.isLoggedIn && auth.user.role === "Student" && (
-                <Route
-                  path="/quiz"
-                  component={QuizStudent}
-                />
+                <Route path="/settings" component={Settings}/>
               )}
               <Route exact path="/" component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
               <Route path="/CodeEditorScreen" component={CodeEditorScreen} />
-              {!auth.isLoggedIn && (
-                <Route path="/classroom/:classroomID" component={Home} />
-              )}
+              {!auth.isLoggedIn && (<Route path="/classroom/:classroomID" component={Home}/>)}
               <Route component={Page404} />
             </Switch>
           </Router>
