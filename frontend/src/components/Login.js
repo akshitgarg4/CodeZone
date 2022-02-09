@@ -115,7 +115,6 @@ class Login extends Component {
                             variant="contained"
                             sx={{mt: 3, mb: 2}}
                             disabled={inProgress}
-                            id="sign-in"
                         >
                             Sign In
                         </Button>
