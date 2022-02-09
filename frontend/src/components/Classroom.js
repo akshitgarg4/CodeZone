@@ -2,8 +2,7 @@ import React , { Component } from "react";
 import { connect } from "react-redux";
 import DiscussionPortal from "./DiscussionPortal";
 import StudentsList from "./StudentsList";
-import NoticeBoard from "./NoticeBoard";
-
+import NoticeTab from "./NoticeTab";
 //Material UI
 import { Grid } from '@mui/material';
 import { clearClassroomDetails , fetchClassroomDetails } from "../actions/classroom";
@@ -42,32 +41,33 @@ class Classroom extends Component {
     render () {
         const { match } = this.props;
         // return <div>{match.params.classroomID}</div>;
-        return ( <Grid container direction="row" justifyContent="space-evenly">
+        return (
+          <Grid container direction="row" justifyContent="space-evenly">
             <Grid
-                item
-                xs={6}
-                m={2}
-                style={{ maxHeight: "150vh", overflow: "auto" }}
+              item
+              xs={6}
+              m={2}
+              style={{ maxHeight: "150vh", overflow: "auto" }}
             >
-                {" "}
-                <DiscussionPortal classroomId={match.params.classroomID} />
+              {" "}
+              <DiscussionPortal classroomId={match.params.classroomID} />
             </Grid>
             <Grid
-                item
-                xs={4}
-                m={2}
-                container
-                direction="column"
-                alignItems="stretch"
+              item
+              xs={4}
+              m={2}
+              container
+              direction="column"
+              alignItems="stretch"
             >
-                <Grid item m={2}>
-                    <NoticeBoard classroomId={match.params.classroomID} />{" "}
-                </Grid>
-                <Grid item m={2}>
-                    <StudentsList classroomId={match.params.classroomID} />
-                </Grid>
+              <Grid item m={2}>
+                <NoticeTab classroomId={match.params.classroomID} />{" "}
+              </Grid>
+              <Grid item m={2}>
+                <StudentsList classroomId={match.params.classroomID} />
+              </Grid>
             </Grid>
-        </Grid>
+          </Grid>
         );
     }
 }
